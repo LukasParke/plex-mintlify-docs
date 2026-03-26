@@ -1202,6 +1202,7 @@ paths:
 
                 res, err := s.Timeline.MarkPlayed(ctx, operations.MarkPlayedRequest{
                     Identifier: "<value>",
+                    Key: plexgo.Pointer("59398"),
                 })
                 if err != nil {
                     log.Fatal(err)
@@ -1275,6 +1276,7 @@ paths:
             async function run() {
               await plexAPI.timeline.markPlayed({
                 identifier: "<value>",
+                key: "59398",
               });
 
 
@@ -3848,9 +3850,7 @@ paths:
           source: |-
             import { PlexAPI } from "@lukehagar/plexjs";
 
-            const plexAPI = new PlexAPI({
-              token: "<YOUR_API_KEY_HERE>",
-            });
+            const plexAPI = new PlexAPI();
 
             async function run() {
               const result = await plexAPI.general.getIdentity();
@@ -5297,8 +5297,8 @@ paths:
                     Agent: "<value>",
                     Language: "<value>",
                     Locations: []string{
-                        "O:\fatboy\\Media\\Ripped\\Music",
-                        "O:\fatboy\\Media\\My Music",
+                        "O:\\fatboy\\Media\\Ripped\\Music",
+                        "O:\\fatboy\\Media\\My Music",
                     },
                     Prefs: &operations.QueryParamPrefs{},
                     Relative: components.BoolIntTrue.ToPointer(),
@@ -5393,8 +5393,8 @@ paths:
                 agent: "<value>",
                 language: "<value>",
                 locations: [
-                  "O:\fatboy\\Media\\Ripped\\Music",
-                  "O:\fatboy\\Media\\My Music",
+                  "O:\\fatboy\\Media\\Ripped\\Music",
+                  "O:\\fatboy\\Media\\My Music",
                 ],
                 prefs: {},
                 relative: BoolInt.True,
@@ -6581,7 +6581,7 @@ paths:
 
             async function run() {
               const result = await plexAPI.epg.computeChannelMap({
-                deviceQueryParameter: "<value>",
+                deviceQueryParameter: "Mobile",
                 lineup: "<value>",
               });
 
@@ -7150,7 +7150,7 @@ paths:
 
             async function run() {
               const result = await plexAPI.epg.getLineup({
-                deviceQueryParameter: "<value>",
+                deviceQueryParameter: "Desktop",
                 lineupGroup: "<value>",
               });
 
@@ -10198,7 +10198,9 @@ paths:
                     plexgo.WithSecurity("<YOUR_API_KEY_HERE>"),
                 )
 
-                res, err := s.LibraryPlaylists.CreatePlaylist(ctx, operations.CreatePlaylistRequest{})
+                res, err := s.LibraryPlaylists.CreatePlaylist(ctx, operations.CreatePlaylistRequest{
+                    URI: plexgo.Pointer("https://short-term-disconnection.name/"),
+                })
                 if err != nil {
                     log.Fatal(err)
                 }
@@ -10270,7 +10272,9 @@ paths:
             });
 
             async function run() {
-              const result = await plexAPI.libraryPlaylists.createPlaylist({});
+              const result = await plexAPI.libraryPlaylists.createPlaylist({
+                uri: "https://short-term-disconnection.name/",
+              });
 
               console.log(result);
             }
@@ -10889,7 +10893,7 @@ paths:
                 )
 
                 res, err := s.General.GetSourceConnectionInformation(ctx, operations.GetSourceConnectionInformationRequest{
-                    Source: "<value>",
+                    Source: "server://client-identifier",
                     Refresh: components.BoolIntTrue.ToPointer(),
                 })
                 if err != nil {
@@ -10967,7 +10971,7 @@ paths:
 
             async function run() {
               const result = await plexAPI.general.getSourceConnectionInformation({
-                source: "<value>",
+                source: "server://client-identifier",
                 refresh: BoolInt.True,
               });
 
@@ -14475,7 +14479,7 @@ paths:
 
                 s := plexgo.New(
                     plexgo.WithAccepts(components.AcceptsApplicationXML),
-                    plexgo.WithClientIdentifier("abc123"),
+                    plexgo.WithClientIdentifier("3381b62b-9ab7-4e37-827b-203e9809eb58"),
                     plexgo.WithProduct("Plex for Roku"),
                     plexgo.WithVersion("2.4.1"),
                     plexgo.WithPlatform("Roku"),
@@ -14556,7 +14560,7 @@ paths:
 
             const plexAPI = new PlexAPI({
               accepts: Accepts.ApplicationXml,
-              clientIdentifier: "abc123",
+              clientIdentifier: "3381b62b-9ab7-4e37-827b-203e9809eb58",
               product: "Plex for Roku",
               version: "2.4.1",
               platform: "Roku",
@@ -15031,7 +15035,7 @@ paths:
 
                 s := plexgo.New(
                     plexgo.WithAccepts(components.AcceptsApplicationXML),
-                    plexgo.WithClientIdentifier("abc123"),
+                    plexgo.WithClientIdentifier("3381b62b-9ab7-4e37-827b-203e9809eb58"),
                     plexgo.WithProduct("Plex for Roku"),
                     plexgo.WithVersion("2.4.1"),
                     plexgo.WithPlatform("Roku"),
@@ -15039,7 +15043,7 @@ paths:
                     plexgo.WithDevice("Roku 3"),
                     plexgo.WithModel("4200X"),
                     plexgo.WithDeviceVendor("Roku"),
-                    plexgo.WithDeviceName("Living Room TV"),
+                    plexgo.WithDeviceName("Chrome"),
                     plexgo.WithMarketplace("googlePlay"),
                     plexgo.WithSecurity("<YOUR_API_KEY_HERE>"),
                 )
@@ -15104,7 +15108,7 @@ paths:
 
             const plexAPI = new PlexAPI({
               accepts: Accepts.ApplicationXml,
-              clientIdentifier: "abc123",
+              clientIdentifier: "3381b62b-9ab7-4e37-827b-203e9809eb58",
               product: "Plex for Roku",
               version: "2.4.1",
               platform: "Roku",
@@ -15112,7 +15116,7 @@ paths:
               device: "Roku 3",
               model: "4200X",
               deviceVendor: "Roku",
-              deviceName: "Living Room TV",
+              deviceName: "Chrome",
               marketplace: "googlePlay",
               token: "<YOUR_API_KEY_HERE>",
             });
@@ -15263,7 +15267,7 @@ paths:
 
                 s := plexgo.New(
                     plexgo.WithAccepts(components.AcceptsApplicationXML),
-                    plexgo.WithClientIdentifier("abc123"),
+                    plexgo.WithClientIdentifier("3381b62b-9ab7-4e37-827b-203e9809eb58"),
                     plexgo.WithSecurity("<YOUR_API_KEY_HERE>"),
                 )
 
@@ -15324,7 +15328,7 @@ paths:
 
             const plexAPI = new PlexAPI({
               accepts: Accepts.ApplicationXml,
-              clientIdentifier: "abc123",
+              clientIdentifier: "3381b62b-9ab7-4e37-827b-203e9809eb58",
               token: "<YOUR_API_KEY_HERE>",
             });
 
@@ -23854,8 +23858,8 @@ paths:
                     SectionID: "<id>",
                     Agent: "<value>",
                     Locations: []string{
-                        "O:\fatboy\\Media\\Ripped\\Music",
-                        "O:\fatboy\\Media\\My Music",
+                        "O:\\fatboy\\Media\\Ripped\\Music",
+                        "O:\\fatboy\\Media\\My Music",
                     },
                     Prefs: &operations.EditSectionQueryParamPrefs{},
                 })
@@ -23939,8 +23943,8 @@ paths:
                 sectionId: "<id>",
                 agent: "<value>",
                 locations: [
-                  "O:\fatboy\\Media\\Ripped\\Music",
-                  "O:\fatboy\\Media\\My Music",
+                  "O:\\fatboy\\Media\\Ripped\\Music",
+                  "O:\\fatboy\\Media\\My Music",
                 ],
                 prefs: {},
               });
@@ -43464,6 +43468,7 @@ components:
           type: string
           enum:
             - background
+            - backgroundSquare
             - banner
             - clearLogo
             - coverPoster
@@ -43621,8 +43626,16 @@ components:
           type: boolean
           example: false
         hasVoiceActivity:
-          type: boolean
-          example: true
+          oneOf:
+            - type: boolean
+            - type: string
+              enum:
+                - '0'
+                - '1'
+          example: '0'
+          description: |
+            Voice activity detection availability flag returned by PMS.
+            PMS may return this as a boolean or as string values (`"0"` or `"1"`).
         height:
           type: integer
           format: int32
@@ -44306,10 +44319,20 @@ components:
           type: boolean
         skipChildren:
           description: When found on a show item, indicates that the children (seasons) should be skipped in favor of the grandchildren (episodes). Useful for mini-series, etc.
-          type: boolean
+          oneOf:
+            - type: boolean
+            - type: string
+              enum:
+                - '0'
+                - '1'
         skipParent:
           description: When present on an episode or track item, indicates parent should be skipped in favor of grandparent (show).
-          type: boolean
+          oneOf:
+            - type: boolean
+            - type: string
+              enum:
+                - '0'
+                - '1'
         Sort:
           description: Typically only seen in metadata at a library's top level
           type: array
@@ -45030,24 +45053,23 @@ components:
           format: int32
           example: 1
         streamType:
-          type: integer
-          format: int32
-          oneOf:
-            - title: VIDEO
-              const: 1
-              description: Video stream
-            - title: AUDIO
-              const: 2
-              description: Audio stream
-            - title: SUBTITLE
-              const: 3
-              description: Subtitle stream
-          example: 1
-          description: |
-            Stream type:
-              - VIDEO = 1
-              - AUDIO = 2
-              - SUBTITLE = 3
+          allOf:
+            - type: integer
+              format: int32
+              enum:
+                - 1
+                - 2
+                - 3
+              example: 1
+              x-speakeasy-enums:
+                - VIDEO
+                - AUDIO
+                - SUBTITLE
+            - description: |
+                Stream type:
+                  - VIDEO = 1 (Video stream)
+                  - AUDIO = 2 (Audio stream)
+                  - SUBTITLE = 3 (Subtitle stream)
         width:
           type: integer
           format: int32
